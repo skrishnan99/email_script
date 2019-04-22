@@ -21,13 +21,13 @@ class Alert:
         from twilio.rest import Client
         client = Client(Alert.account_sid, Alert.auth_token)
 
-        message = client.messages \
-            .create(
-                body=msg,
-                from_=Alert.send_email,
-                to=receivers
-            )
-
+        for each in receivers:
+            client.messages \
+                .create(
+                    body=msg,
+                    from_=Alert.send_email,
+                    to=each
+                )
 
 
 
