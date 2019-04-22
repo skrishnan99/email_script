@@ -5,7 +5,8 @@ class Alert:
     account_sid = 'ACfe3f81c3a2cd6eccfd1ac3a8f2449584'
     auth_token = '8ba90a5067ff1ec9e5ecc22397e6c999'
 
-    def send_email(self,receivers = None, subject_txt = None, msg = None, file_path = None):
+    def send_email(self,receivers = None, \
+        subject_txt = None, msg = None, file_path = None):
 
         import yagmail
         yag = yagmail.SMTP(Alert.sender_email)
@@ -25,11 +26,7 @@ class Alert:
             client.messages \
                 .create(
                     body=msg,
-                    from_=Alert.send_email,
+                    from_=Alert.sender_phone,
                     to=each
                 )
-
-
-
-
 
